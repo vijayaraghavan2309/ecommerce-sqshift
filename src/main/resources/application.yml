@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: admin
+    url: jdbc:postgresql://localhost/ecomdb
+    username: postgres
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        envers:
+          default_schema: audit
+    show-sql: true
+    ddl-auto: validate
+    format_sql: true
+
+  flyway:
+    enabled: false
+    url: jdbc:postgresql://localhost/ecomdb
+    user: postgres
+    password: admin
+    baseline-on-migrate: true
+
+server:
+  port: 1201
+
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: ERROR
+    com.howtodoinjava: DEBUG
+    org.hibernate: ERROR
+
+springfox:
+  documentation:
+    enabled=: true
+
+spring.servlet.multipart.max-file-size: 128MB
+spring.servlet.multipart.max-request-size: 128MB
+spring.servlet.multipart.enabled: true
+
+

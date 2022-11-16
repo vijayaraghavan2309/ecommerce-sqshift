@@ -1,0 +1,8 @@
+FROM openjdk:11
+RUN ../build.sh
+WORKDIR vijay
+COPY ../build/libs/ecommerce-0.0.1-SNAPSHOT.jar vijay/ecommerce-0.0.1-SNAPSHOT.jar
+COPY ../src/main/resources/application.yml  vijay/application.yml
+RUN chmod 777 ecommerce-0.0.1-SNAPSHOT.jar
+EXPOSE 1201
+ENTRYPOINT ["java", "-Dspring.config.location=application.yml","-jar", "/ecommerce-0.0.1-SNAPSHOT.jar"]

@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     password: admin
-    url: jdbc:postgresql://host.docker.internal/ecomdb
+    url: jdbc:postgresql://localhost/ecomdb
     username: postgres
 
   jpa:
@@ -17,7 +17,7 @@ spring:
 
   flyway:
     enabled: false
-    url: jdbc:postgresql://host.docker.internal/ecomdb
+    url: jdbc:postgresql://localhost/ecomdb
     user: postgres
     password: admin
     baseline-on-migrate: true
